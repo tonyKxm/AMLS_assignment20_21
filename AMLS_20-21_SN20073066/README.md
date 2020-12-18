@@ -24,3 +24,8 @@ OpenCV, Scikit-Learn, Pandas, Joblib, Tensorflow 1.14, CUDA, Python 3.7
   - Datasets
   - main.py (display all model performances)
   - README.md
+## Reminder
+- use Tensorflow 1.14 is preferrable
+- main.py can run in both terminal and jupyter notebook. In jupyter notebook use following command:
+  > %run main.py
+- before run main.py, remember to decompress zip files in A2,B1,B2
