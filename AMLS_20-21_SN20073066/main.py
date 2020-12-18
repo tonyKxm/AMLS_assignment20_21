@@ -1,42 +1,42 @@
-import ...
-
+from A1 import gender as a1
+from A2 import smiling as a2
+from B1 import face_shape as b1
+from B2 import eye_color as b2
 # ======================================================================================================================
 # Data preprocessing
-data_train, data_val, data_test = data_preprocessing(args...)
+x_train_a1, x_vali_a1, x_test_a1, y_train_a1, y_vali_a1, y_test_a1 = a1.preProcessing()
+x_train_a2, x_vali_a2, x_test_a2, y_train_a2, y_vali_a2, y_test_a2 = a2.preProcessing()
+x_train_b1, x_vali_b1, x_test_b1, y_train_b1, y_vali_b1, y_test_b1 = b1.preProcessing()
+x_train_b2, x_vali_b2, x_test_b2, y_train_b2, y_vali_b2, y_test_b2 = b2.preProcessing()
 # ======================================================================================================================
-# Task A1
-model_A1 = A1(args...)                 # Build model object.
-acc_A1_train = model_A1.train(args...) # Train model based on the training set (you should fine-tune your model based on validation set.)
-acc_A1_test = model_A1.test(args...)   # Test model based on the test set.
-Clean up memory/GPU etc...             # Some code to free memory if necessary.
-
-
-# ======================================================================================================================
-# Task A2
-model_A2 = A2(args...)
-acc_A2_train = model_A2.train(args...)
-acc_A2_test = model_A2.test(args...)
-Clean up memory/GPU etc...
-
-
-# ======================================================================================================================
-# Task B1
-model_B1 = B1(args...)
-acc_B1_train = model_B1.train(args...)
-acc_B1_test = model_B1.test(args...)
-Clean up memory/GPU etc...
-
-
+# # Task A1
+acc_A1_train = a1.train(x_train_a1,y_train_a1) 
+acc_A1_test = a1.test(x_test_a1,y_test_a1)
+# acc_A1_vali = a1.validation(x_vali_a1,y_vali_a1) 
+# print(acc_A1_vali)
+# # ======================================================================================================================
+# # Task A2
+acc_A2_train = a2.train(x_train_a2,y_train_a2) 
+acc_A2_test = a2.test(x_test_a2,y_test_a2)
+# acc_A2_vali = a2.validation(x_vali_a2,y_vali_a2) 
+# print(acc_A2_vali)
+# # ======================================================================================================================
+# # Task B1
+acc_B1_train = b1.train(x_train_b1,y_train_b1) 
+acc_B1_test = b1.test(x_test_b1,y_test_b1)
+# acc_B1_vali = b1.validation(x_vali_b1,y_vali_b1) 
+# print(acc_B1_vali)
 # ======================================================================================================================
 # Task B2
-model_B2 = B2(args...)
-acc_B2_train = model_B2.train(args...)
-acc_B2_test = model_B2.test(args...)
-Clean up memory/GPU etc...
-
-
+acc_B2_train = b2.train(x_train_b2,y_train_b2) 
+acc_B2_test = b2.test(x_test_b2,y_test_b2)
+# acc_B2_vali = b2.validation(x_vali_b2,y_vali_b2) 
+# print(acc_B2_vali)
 # ======================================================================================================================
 ## Print out your results with following format:
+# print('TA2:{},{};TB2:{},{};'.format(acc_A2_train, acc_A2_test,
+#                                     acc_B2_train, acc_B2_test))
+# print('TA2:{},{};'.format(acc_B2_train, acc_B2_test))
 print('TA1:{},{};TA2:{},{};TB1:{},{};TB2:{},{};'.format(acc_A1_train, acc_A1_test,
                                                         acc_A2_train, acc_A2_test,
                                                         acc_B1_train, acc_B1_test,
